@@ -8,7 +8,11 @@ const postsRoute = require("./routes/api/posts");
 const profileRoute = require("./routes/api/profile");
 
 const app = express();
+// CONNECT Database
 connectDB();
+// Init middleware for bodyParser
+app.use(express.json({extended: false}));
+
 
 app.get("/", (req, res) => {
   res.send("CONNECTED");
